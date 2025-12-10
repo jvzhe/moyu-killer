@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>摸鱼克星-学术版 - 找回属于你的深度思考时间</title>
+    <link rel="alternate" hreflang="zh" href="/" />
+    <link rel="alternate" hreflang="en" href="/en" />
+    <meta name="description" content="让 你在写论文期间再也打不开B 站、微博或短视频。摸鱼克星-学术版，专为科研人员打造的深度工作工具。">
+    <meta name="keywords" content="摸鱼,摸鱼克星,写论文,深度工作,时间管理,专注工具">
+    <meta name="author" content="Neil000">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://neil000.com/moyu-killer">
+    <meta property="og:title" content="摸鱼克星-学术版 - 找回属于你的深度思考时间">
+    <meta property="og:description" content="让 你在写论文期间再也打不开B 站、微博或短视频。">
+    <meta property="og:image" content="https://placehold.co/1200x630/4F46E5/ffffff?text=Moyu+Killer">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://neil000.com/moyu-killer">
+    <meta property="twitter:title" content="摸鱼克星-学术版 - 找回属于你的深度思考时间">
+    <meta property="twitter:description" content="让 你在写论文期间再也打不开B 站、微博或短视频。">
+    <meta property="twitter:image" content="https://placehold.co/1200x630/4F46E5/ffffff?text=Moyu+Killer">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        'primary-hover': '#4338ca',
+                        secondary: '#E0E7FF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- JSON-LD Structure Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Neil000",
+          "url": "https://neil000.com",
+          "logo": "https://placehold.co/150x150/4F46E5/ffffff?text=N"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "摸鱼克星-学术版",
+          "operatingSystem": "Windows, macOS",
+          "applicationCategory": "Productivity",
+          "description": "让 你在写论文期间再也打不开B 站、微博或短视频",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CNY"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "软件强制锁定时能强行退出吗？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "不能。学术版特有的'死锁模式'会屏蔽任务管理器和强制重启，直到设定的专注时间结束。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "是否支持自定义屏蔽列表？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "支持。除了内置的常见摸鱼网站（B站、微博、抖音等），您还可以添加任何您想屏蔽的网站或应用。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "查资料需要用到 YouTube 怎么办？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "我们提供'深度专注'模式，智能屏蔽娱乐内容，仅保留学术相关访问权限，智能识别娱乐内容与学习内容。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "软件收费吗？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "完全免费。作为一款 Edge 浏览器扩展，我们承诺永久免费，无任何内购或广告。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "支持哪些操作系统？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "目前完美支持 Windows 10/11 和 macOS 12+ 系统。"
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .bg-gradient-soft {
+            background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 glass">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <span class="font-bold text-xl text-gray-900 tracking-tight">摸鱼克星<span class="text-primary text-sm ml-1 px-2 py-0.5 bg-indigo-50 rounded-full">学术版</span></span>
+                </a>
+
+                <!-- Nav -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-primary font-medium transition-colors">功能特点</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-primary font-medium transition-colors">价格方案</a>
+                    <a href="#faq" class="text-gray-600 hover:text-primary font-medium transition-colors">常见问题</a>
+                </nav>
+
+                <!-- CTA -->
+                <div class="flex items-center space-x-4">
+                    <a href="index-en.html" class="text-gray-600 hover:text-primary font-medium transition-colors px-2">EN</a>
+                    <a href="https://microsoftedge.microsoft.com/addons/detail/%E6%91%B8%E9%B1%BC%E5%85%8B%E6%98%9F-%E8%AE%BA%E6%96%87%E7%89%88/bimpajfmpgefbemijpingnbabkfhkppk" target="_blank" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-semibold rounded-xl text-white bg-primary hover:bg-primary-hover shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
+                        获取 Edge 扩展
+                    </a>
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden text-gray-600 focus:outline-none" aria-label="打开菜单">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section class="relative pt-20 pb-32 overflow-hidden">
+            <!-- Background Decorations -->
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+                <div class="absolute -top-20 -left-20 w-96 h-96 bg-indigo-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+                <div class="absolute top-40 -right-20 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+                <div class="absolute -bottom-20 left-40 w-96 h-96 bg-pink-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+            </div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-indigo-50 text-primary text-sm font-semibold mb-8 border border-indigo-100">
+                    <span class="flex h-2 w-2 relative mr-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                    </span>
+                    专为追求极致效率的你打造
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tight mb-6 leading-tight">
+                    找回属于你的<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-600">深度思考时间</span>
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto text-xl text-gray-500 leading-relaxed">
+                    你是否总是在写论文、备考或工作时，不知不觉打开了 B 站、微博或短视频？<br>
+                    “摸鱼克星”是专为追求极致效率的你打造的硬核防分心神器。
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="https://microsoftedge.microsoft.com/addons/detail/%E6%91%B8%E9%B1%BC%E5%85%8B%E6%98%9F-%E8%AE%BA%E6%96%87%E7%89%88/bimpajfmpgefbemijpingnbabkfhkppk" target="_blank" class="px-8 py-4 rounded-2xl bg-primary text-white font-bold text-lg shadow-xl hover:bg-primary-hover hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        获取 Edge 扩展
+                    </a>
+                    <div class="flex items-center gap-2 px-6 py-4 rounded-2xl bg-white text-gray-700 font-bold text-lg shadow-md border border-gray-100">
+                        <span class="text-green-500">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </span>
+                        永久免费
+                    </div>
+                </div>
+                
+                <!-- Product Screenshot -->
+                <div class="mt-20 relative max-w-5xl mx-auto">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-50 via-transparent to-transparent z-10"></div>
+                    <img src="images/dashboard.png" onerror="this.onerror=null;this.src='https://placehold.co/1200x800/eef2ff/4f46e5?text=Product+Dashboard+Interface'" alt="摸鱼克星软件界面" class="rounded-3xl shadow-2xl border-4 border-white/50 backdrop-blur-sm transform hover:scale-[1.01] transition-transform duration-500">
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <!-- Benefit 1 -->
+                    <div class="text-center group p-8 rounded-3xl hover:bg-gray-50 transition-colors duration-300">
+                        <div class="w-16 h-16 mx-auto bg-indigo-100 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">硬核自律锁</h3>
+                        <p class="text-gray-500 leading-relaxed">一旦开启锁定，设定时间内绝无反悔可能。支持 1 小时至 7 天狠人模式，强制你回归心流状态。</p>
+                    </div>
+                    <!-- Benefit 2 -->
+                    <div class="text-center group p-8 rounded-3xl hover:bg-gray-50 transition-colors duration-300">
+                        <div class="w-16 h-16 mx-auto bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">顶级审美体验</h3>
+                        <p class="text-gray-500 leading-relaxed">拒绝简陋提示框，4 种沉浸式拦截风格（赛博、禅意、学术、死线），适配不同心境。</p>
+                    </div>
+                    <!-- Benefit 3 -->
+                    <div class="text-center group p-8 rounded-3xl hover:bg-gray-50 transition-colors duration-300">
+                        <div class="w-16 h-16 mx-auto bg-pink-100 rounded-2xl flex items-center justify-center text-pink-600 mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">动力与定制</h3>
+                        <p class="text-gray-500 leading-relaxed">内置“平静张力”文案库，抚平焦躁；支持上传激励图片（如偶像、梦校），让目标时刻可见。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-20">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">不仅仅是屏蔽，更是习惯的养成</h2>
+                    <p class="text-lg text-gray-500">拒绝简陋的提示框，用沉浸式体验重塑你的专注力。</p>
+                </div>
+
+                <!-- Feature 1: Hardcore Lock -->
+                <div class="flex flex-col md:flex-row items-center gap-16 mb-24">
+                    <div class="w-full md:w-1/2">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl group flex justify-center bg-gray-100">
+                            <img src="images/feature-lock.png" onerror="this.onerror=null;this.src='https://placehold.co/600x400/eef2ff/4f46e5?text=Hardcore+Lock+Mode'" alt="死锁模式" class="w-full max-w-[600px] h-auto transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="inline-block p-3 rounded-2xl bg-indigo-100 text-primary mb-6">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">绝不妥协的“硬核自律锁”</h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            一旦开启锁定，设定时间内绝无反悔可能，强制你回归心流状态。在这个时间段内，你的电脑只能用来做正事。
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                屏蔽任务管理器 & 强制重启
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                支持 1 小时至 7 天（狠人模式）
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Feature 2: 4 Immersive Styles -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-16 mb-24">
+                    <div class="w-full md:w-1/2">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl group flex justify-center bg-gray-100">
+                            <img src="images/feature-styles.png" onerror="this.onerror=null;this.src='https://placehold.co/600x400/fce7f3/db2777?text=Immersive+Styles'" alt="4种拦截风格" class="w-full max-w-[600px] h-auto transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="inline-block p-3 rounded-2xl bg-pink-100 text-pink-600 mb-6">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">4 种沉浸式拦截风格</h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            拒绝简陋的提示框，我们设计了 4 种风格，适配你不同的心境与压力水平。
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center text-gray-700">
+                                <span class="text-xl mr-2">🌌</span>
+                                <strong>赛博故障 (Cyberpunk)：</strong>全屏 HUD 战术终端
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <span class="text-xl mr-2">🍃</span>
+                                <strong>禅意自然 (Zen Nature)：</strong>动态晨雾与呼吸圆环
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <span class="text-xl mr-2">🏛️</span>
+                                <strong>极简学术 (Academic)：</strong>冷静理性的设计
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <span class="text-xl mr-2">🩸</span>
+                                <strong>绝望死线 (Deadline)：</strong>直面 Deadline 的恐惧
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Customization -->
+                <div class="flex flex-col md:flex-row items-center gap-16">
+                    <div class="w-full md:w-1/2">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl group flex justify-center bg-gray-100">
+                            <img src="images/feature-custom.png" onerror="this.onerror=null;this.src='https://placehold.co/600x400/dcfce7/16a34a?text=Customization+Panel'" alt="高度定制" class="w-full max-w-[600px] h-auto transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="inline-block p-3 rounded-2xl bg-green-100 text-green-600 mb-6">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">高度定制，把目标刻在眼前</h3>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            动态鸡汤与激励图片，让你的每一次“想摸鱼”都变成“想努力”。
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                动态鸡汤：内置“平静张力”文案库，平滑轮播
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                激励图片：支持上传偶像、梦校照片
+                            </li>
+                            <li class="flex items-center text-gray-700">
+                                <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                动态黑名单：一键添加任意干扰网站
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Showcase Section -->
+        <section id="showcase" class="py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900">适用于各种高压学术场景</h2>
+                    <p class="mt-4 text-gray-500">无论是赶 DDL 还是日常文献阅读，它都是你的最佳拍档</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="group relative rounded-3xl overflow-hidden cursor-pointer">
+                        <img src="images/showcase-thesis.png" onerror="this.onerror=null;this.src='https://placehold.co/800x600/1f2937/4f46e5?text=Thesis+Sprint'" alt="论文冲刺" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                            <h3 class="text-white text-xl font-bold mb-2">论文冲刺周</h3>
+                            <p class="text-gray-300 text-sm">开启死锁模式，连续 7 天高强度输出，无视外界干扰。</p>
+                        </div>
+                    </div>
+                    <div class="group relative rounded-3xl overflow-hidden cursor-pointer">
+                        <img src="images/showcase-exam.png" onerror="this.onerror=null;this.src='https://placehold.co/800x600/1f2937/4f46e5?text=Exam+Review'" alt="期末复习" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                            <h3 class="text-white text-xl font-bold mb-2">期末复习月</h3>
+                            <p class="text-gray-300 text-sm">结合番茄钟，科学规划复习节奏，拒绝无效刷手机。</p>
+                        </div>
+                    </div>
+                    <div class="group relative rounded-3xl overflow-hidden cursor-pointer">
+                        <img src="images/showcase-reading.png" onerror="this.onerror=null;this.src='https://placehold.co/800x600/1f2937/4f46e5?text=Deep+Reading'" alt="深度阅读" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                            <h3 class="text-white text-xl font-bold mb-2">文献深度阅读</h3>
+                            <p class="text-gray-300 text-sm">沉浸阅读模式，优化 PDF 阅读器和笔记软件体验，专注输入。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-24 bg-indigo-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">完全免费，只为守护你的专注</h2>
+                    <p class="text-xl text-gray-600 mb-12">
+                        作为一款 Edge 浏览器扩展，我们承诺永久免费。没有内购，没有广告，只有纯粹的专注体验。
+                    </p>
+                    
+                    <div class="bg-white rounded-3xl shadow-xl p-10 md:p-14 border border-indigo-100 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-green-500 text-white text-sm font-bold px-6 py-2 rounded-bl-2xl">
+                            Permanent Free
+                        </div>
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+                            <div class="text-left flex-1">
+                                <h3 class="text-3xl font-bold text-gray-900 mb-2">摸鱼克星 - 学术版</h3>
+                                <p class="text-gray-500 text-lg mb-6">Edge 浏览器扩展</p>
+                                <div class="flex items-baseline gap-2 mb-8">
+                                    <span class="text-6xl font-extrabold text-primary">¥0</span>
+                                    <span class="text-xl text-gray-500 font-medium">/ 永久免费</span>
+                                </div>
+                                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <li class="flex items-center text-gray-700 font-medium"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>硬核自律锁</li>
+                                    <li class="flex items-center text-gray-700 font-medium"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>4 种沉浸式风格</li>
+                                    <li class="flex items-center text-gray-700 font-medium"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>动态智能拦截系统</li>
+                                    <li class="flex items-center text-gray-700 font-medium"><svg class="w-5 h-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>高度定制 (图片/文案)</li>
+                                </ul>
+                            </div>
+                            <div class="flex-shrink-0 w-full md:w-auto">
+                                <a href="https://microsoftedge.microsoft.com/addons/detail/%E6%91%B8%E9%B1%BC%E5%85%8B%E6%98%9F-%E8%AE%BA%E6%96%87%E7%89%88/bimpajfmpgefbemijpingnbabkfhkppk" target="_blank" class="block w-full md:w-auto px-10 py-5 bg-primary text-white font-bold text-xl rounded-2xl shadow-lg hover:bg-primary-hover hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 text-center">
+                                    立即获取
+                                </a>
+                                <p class="mt-4 text-sm text-gray-400 text-center">前往 Microsoft Edge Addons 商店</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900">听听他们的声音</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-8 rounded-3xl">
+                        <div class="flex items-center mb-4">
+                            <img src="images/avatar-1.png" onerror="this.onerror=null;this.src='https://api.dicebear.com/9.x/avataaars/svg?seed=Felix'" alt="User" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900">李同学</h4>
+                                <p class="text-sm text-gray-500">某985博士生</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"以前写论文总忍不住刷手机，用了死锁模式后，效率提升了三倍。这才是科研人该有的工具！"</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-3xl">
+                        <div class="flex items-center mb-4">
+                            <img src="images/avatar-2.png" onerror="this.onerror=null;this.src='https://api.dicebear.com/9.x/avataaars/svg?seed=Aneka'" alt="User" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900">王教授</h4>
+                                <p class="text-sm text-gray-500">青年教师</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"给我的研究生都推荐了这个扩展。沉浸模式非常实用，既能查文献又不会分心。"</p>
+                    </div>
+                    <div class="bg-gray-50 p-8 rounded-3xl">
+                        <div class="flex items-center mb-4">
+                            <img src="images/avatar-3.png" onerror="this.onerror=null;this.src='https://api.dicebear.com/9.x/avataaars/svg?seed=Zack'" alt="User" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold text-gray-900">张研究员</h4>
+                                <p class="text-sm text-gray-500">社科院</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 italic">"界面的沉浸感太强了，特别是那个禅意模式，让我能迅速进入心流状态。"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-gray-900">常见问题</h2>
+                </div>
+                <div class="space-y-6">
+                    <details class="group bg-white rounded-2xl shadow-sm p-6 cursor-pointer">
+                        <summary class="flex justify-between items-center font-medium text-lg text-gray-900 list-none">
+                            "死锁模式"真的无法破解吗？万一我有急事怎么办？
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <p class="text-gray-600 mt-4 group-open:animate-fadeIn">
+                            是的，为了确保绝对的专注，死锁期间无法通过任务管理器或重启浏览器退出。建议初次使用时设定较短时间（如 25 分钟番茄钟），适应后再尝试长时间的深度工作。
+                        </p>
+                    </details>
+                    <details class="group bg-white rounded-2xl shadow-sm p-6 cursor-pointer">
+                        <summary class="flex justify-between items-center font-medium text-lg text-gray-900 list-none">
+                            如何定义"学术专注"的拦截范围？
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <p class="text-gray-600 mt-4 group-open:animate-fadeIn">
+                            智能识别 Google Scholar, PubMed, ArXiv 等主流科研平台，并自动放行。同时，插件会屏蔽社交媒体和娱乐网站，确保您专注于学术研究。
+                        </p>
+                    </details>
+                    <details class="group bg-white rounded-2xl shadow-sm p-6 cursor-pointer">
+                        <summary class="flex justify-between items-center font-medium text-lg text-gray-900 list-none">
+                            会记录我的浏览历史吗？
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <p class="text-gray-600 mt-4 group-open:animate-fadeIn">
+                            绝不。作为一款本地运行的浏览器扩展，所有的拦截逻辑都在您的电脑上完成，不上传任何数据。我们深知科研隐私的重要性。
+                        </p>
+                    </details>
+                    <details class="group bg-white rounded-2xl shadow-sm p-6 cursor-pointer">
+                        <summary class="flex justify-between items-center font-medium text-lg text-gray-900 list-none">
+                            这款插件和其他专注工具有什么不同？
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <p class="text-gray-600 mt-4 group-open:animate-fadeIn">
+                            大多数工具"防君子不防小人"。摸鱼克星-学术版专为高压科研场景设计——不仅有无法绕过的硬核拦截，还有配合 DDL 的"绝望死线"风格，从心理和技术双重层面杜绝摸鱼。
+                        </p>
+                    </details>
+                    <details class="group bg-white rounded-2xl shadow-sm p-6 cursor-pointer">
+                        <summary class="flex justify-between items-center font-medium text-lg text-gray-900 list-none">
+                            除了 Edge 浏览器，Chrome 能用吗？
+                            <span class="transition group-open:rotate-180">
+                                <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                            </span>
+                        </summary>
+                        <p class="text-gray-600 mt-4 group-open:animate-fadeIn">
+                            可以。本插件基于 Chromium 内核开发，完美兼容 Chrome, Edge, Brave 等主流浏览器。
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-24 bg-primary relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <h2 class="text-4xl font-extrabold text-white mb-6">准备好重获专注了吗？</h2>
+                <p class="text-indigo-100 text-xl mb-10 max-w-2xl mx-auto">别让你的才华被短视频淹没。现在就开始，夺回属于你的深度思考时间。</p>
+                <a href="https://microsoftedge.microsoft.com/addons/detail/%E6%91%B8%E9%B1%BC%E5%85%8B%E6%98%9F-%E8%AE%BA%E6%96%87%E7%89%88/bimpajfmpgefbemijpingnbabkfhkppk" target="_blank" class="inline-block bg-white text-primary font-bold text-xl py-4 px-10 rounded-2xl shadow-2xl hover:bg-gray-50 hover:scale-105 transition-transform duration-300">
+                    获取 Edge 扩展
+                </a>
+                <p class="mt-6 text-sm text-indigo-200">永久免费 · 无需注册 · 即刻使用</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <span class="font-bold text-xl">摸鱼克星</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Neil000 出品。<br>
+                        致力于利用技术手段帮助科研人员提升效率，找回专注。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">产品</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#features" class="hover:text-white transition-colors">功能特点</a></li>
+                        <li><a href="#pricing" class="hover:text-white transition-colors">价格方案</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">下载中心</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">更新日志</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">支持</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li><a href="#faq" class="hover:text-white transition-colors">帮助中心</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">联系我们</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">隐私政策</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">服务条款</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6">关注我们</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <span class="sr-only">Twitter</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <span class="sr-only">GitHub</span>
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                &copy; 2025 Neil000. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
